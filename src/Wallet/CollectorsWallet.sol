@@ -34,11 +34,9 @@ contract CollectorsWallet {
         payable(msg.sender).transfer(wad);
     }
 
-    function updateCollectors(
-        address oldCollector,
-        address newCollector
-    ) external onlyOwner {
-        require(collectors[newCollector] == 1, "A Collector exist"); // check if collector exist in my hash
+    function updateCollectors(address oldCollector, address newCollector) external onlyOwner {  
+        require(collectors[oldCollector] == 1, "old Collector not exist"); 
+        require (collectors[newCollector] == 0, "a collector is exsist");
         collectors[newCollector] = 1;
         collectors[oldCollector] = 0;
     }
