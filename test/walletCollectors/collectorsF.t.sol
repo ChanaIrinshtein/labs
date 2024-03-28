@@ -5,33 +5,30 @@ import "forge-std/Test.sol";
 import "forge-std/console.sol";
 import "../../src/Wallet/CollectorsWallet.sol";
 
-contract CollectorsTest is Test {
+contract CollectorsFuzzTest is Test {
     CollectorsWallet public wallet;
 
-    function setUp() public {
+    function setUpF(uint256 amount) public {
         wallet = new CollectorsWallet();
-        payable(address(wallet)).transfer(100); 
+        payable(address(wallet)).transfer(amount); 
     }
 
-    function testReceive() public{
+    function testReceiveF(uint256 amount) public{
         uint256 startBalance= address(wallet).balance;
-        payable(address(wallet)).transfer(500);
+        payable(address(wallet)).transfer(amount);
         uint finalBalance= address(wallet).balance;
         console.log(finalBalance);
-        assertEq(finalBalance, startBalance + 500);
+        assertEq(finalBalance, startBalance + amount);
      }
 
-    function testWdIsntAllowd() external {
-        uint256 amount = 50;
+    function testWdIsntAllowdF(uint256 amount) external {
         address userAddress = vm.addr(12); 
         vm.startPrank(userAddress); 
         vm.expectRevert();
         wallet.withdraw(amount);
         vm.stopPrank();
     }
-    function testWdAllowed() external {
-        uint256 amount = 50;
-        address userAddress = 0x7a3b914a1f0bD991BAf826F4fE9a47Bb9880d25f; 
+    function testWdAllowedF(uint256 amount, address userAddress) external {
         vm.startPrank(userAddress); 
         uint256 initialBalance = address(wallet).balance;
         wallet.withdraw(amount);
@@ -40,18 +37,14 @@ contract CollectorsTest is Test {
         vm.stopPrank();
     }
 
-    function testWdWithoutEnoughMoney() public {
-        uint256 amount = 500;
-        address userAddress = 0x7a3b914a1f0bD991BAf826F4fE9a47Bb9880d25f; 
+    function testWdWithoutEnoughMoneyF(uint256 amount, address userAddress) public {
         vm.startPrank(userAddress);
         vm.expectRevert();
         wallet.withdraw(amount);
         vm.stopPrank();
     }
 
-    function testUpdateCollectors() public {
-        address oldAddress = 0xaC4E320Ed1235F185Bc6AC8856Ec7FEA7fF0310d;
-        address newAddress = vm.addr(123);
+    function testUpdateCollectorsF(address oldAddress, address newAddress ) public {
         address addressOwner = address(wallet.owner());
         console.log (address(wallet));
         vm.startPrank(addressOwner);
@@ -63,9 +56,7 @@ contract CollectorsTest is Test {
     }
       
 
-     function testIsntUpdateCollectors() public {
-        address oldAddress = 0xaC4E320Ed1235F185Bc6AC8856Ec7FEA7fF0310d;
-        address newAddress = 0x7ae3DbAC75D264B6F6976639ebBfC645601D3F15;
+     function testIsntUpdateCollectorsF(address oldAddress, address newAddress ) public {
         address addressOwner = vm.addr(123);
         console.log (address(wallet));
         vm.startPrank(addressOwner);
@@ -75,7 +66,7 @@ contract CollectorsTest is Test {
         vm.stopPrank();
     }
 
-     function testGetBalance() public {
+     function testGetBalanceF() public {
         assertEq(wallet.getBalance(), 100, "not equal");
     }
 }
