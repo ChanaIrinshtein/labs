@@ -23,13 +23,14 @@ contract CollectorsWallet {
 
     receive() external payable {}
 
-    function withdraw(uint256 amount) external {
+    function withdraw (uint256 amount) external {
         require(
             owner == msg.sender || collectors[msg.sender] == 1,
             "You are not allowed"
         );
-        require(address(this).balance >= amount, "you dont have enough money");
-        payable(msg.sender).transfer(amount);
+        require (amount>0, "you cant withdraw zero");
+        require (address(this).balance >= amount, "you dont have enough money");
+        payable (msg.sender).transfer(amount);
     }
 
     function updateCollectors(address oldAddress, address newAddress) external isOwner {  
