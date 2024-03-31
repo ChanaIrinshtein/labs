@@ -34,6 +34,7 @@ contract CollectorsTest is Test {
         address userAddress = 0x7a3b914a1f0bD991BAf826F4fE9a47Bb9880d25f; 
         vm.startPrank(userAddress); 
         uint256 initialBalance = address(wallet).balance;
+        console.log("ttttttttt:",address(wallet));
         wallet.withdraw(amount);
         uint256 finalBalance = address(wallet).balance;
         assertEq(finalBalance, initialBalance - amount);

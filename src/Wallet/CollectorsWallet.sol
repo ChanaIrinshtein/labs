@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.24 <0.9.0;
+import "forge-std/console.sol";
 
 contract CollectorsWallet {
     
@@ -8,7 +9,8 @@ contract CollectorsWallet {
     mapping(address => uint256) public collectors;
 
     constructor() {
-        owner = payable(msg.sender);
+        owner = payable(msg.sender);        
+        console.log(owner, "owner");
         collectors[0xaC4E320Ed1235F185Bc6AC8856Ec7FEA7fF0310d] = 1;
         collectors[0x7c0FA5571c4A1A67FD21Ed9209674868cC8dc86b] = 1;
         collectors[0x7a3b914a1f0bD991BAf826F4fE9a47Bb9880d25f] = 1;
@@ -26,7 +28,7 @@ contract CollectorsWallet {
             owner == msg.sender || collectors[msg.sender] == 1,
             "You are not allowed"
         );
-        require(address(this).balance >= amount, "you dont have enough money);
+        require(address(this).balance >= amount, "you dont have enough money");
         payable(msg.sender).transfer(amount);
     }
 
