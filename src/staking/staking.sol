@@ -3,14 +3,14 @@
 //spec --
 //I calculate each person's reward like this:
 //For example, Leah wants to withdraw 100 shekels from what she has, I calculate what percentage she has of totalSupply
-//Let's say 10%.
+//Let's say 10%.staking_h.t
 //Now I calculate how much is 2% of the totalSupply. (The 2% is fixed),
 //Then from the amount that comes out to me at 2%, Leah will get 10%
 //I calculate each person's reward like this:
 //For example, Leah wants to withdraw 100 shekels from what she has, I calculate what percentage she has of totalSupply
 //Let's say 10%.
 //Now I calculate how much is 2% of the totalSupply. (The 2% is fixed),
-//Then from the amount that comes out to me at 2%, Leah will get 10%
+//Then from the amount th0.-+at comes out to me at 2%, Leah will get 10%
 pragma solidity >=0.8.20;
 import "/home/user/newProject/myToken/script/myToken.sol";
 import "forge-std/console.sol";
@@ -23,8 +23,8 @@ contract Staking {
     MyToken public immutable myCoin;
     uint256 public totalSupply = 1000000;
     uint256 statePer = 2;
-    mapping(address => User) public userStake;
     uint256 allReward;
+    mapping(address => User) public userStake;
     uint256 private lastCheckedTimestamp;
     constructor(address _myCoin) {
         myCoin = MyToken(_myCoin);

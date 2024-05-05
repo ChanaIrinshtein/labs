@@ -11,7 +11,7 @@ contract TestStake is Test {
     Staking public stake;
     MyToken public myCoin;
     uint256 wad = 10 ** 18;
-    // initialization
+
     function setUp() public {
         myCoin = new MyToken();
         stake = new Staking(address(myCoin));
