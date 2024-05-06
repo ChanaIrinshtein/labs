@@ -18,7 +18,7 @@
 //     uint256 public staked;              // total staked סה"כ בהימור
 //     mapping(address => uint256) public paid;    // user reward per token paid תגמול משתמש לכל אסימון ששולם
 //     mapping(address => uint256) public rewards; // reward to be claimed פרס שיש לתבוע
-//     mapping(address => uint256) public balances;// staked per user  בהימור לכל משתמש  
+//     mapping(address => uint256) public balances;// staked per user  בהימור לכל משתמש
 //     constructor(address st, address rt) {
 //         owner = msg.sender;
 //         stakingToken = IERC20(st);

@@ -11,7 +11,7 @@
 //     Staking public stake;
 //     MyToken public myCoin;
 //     uint256 wad = 10 ** 18;
-    
+
 //     function setUp() public {
 //         myCoin = new MyToken();
 //         stake = new Staking(address(myCoin));
@@ -54,7 +54,3 @@
 //        assertEq(finalUserBalance, balanceBefore - sum, "d");
 //     }
 // }
-
-
-
-

@@ -7,17 +7,16 @@
 
 // contract CollectorsFuzzTest is Test {
 //     CollectorsWallet public wallet;
-//     address userAddress = vm.addr(12); 
-    
+//     address userAddress = vm.addr(12);
 
 //     function setUpF() public {
 //         wallet = new CollectorsWallet();
-//         // payable(address(wallet)).transfer(1000); 
+//         // payable(address(wallet)).transfer(1000);
 //     }
 
 //     function testReceiveF ( uint256 amount) public{
-//         vm.startPrank(userAddress); 
-//         vm.deal(userAddress, amount);        
+//         vm.startPrank(userAddress);
+//         vm.deal(userAddress, amount);
 //         uint256 startBalance = address(wallet).balance;
 //         payable(address(wallet)).transfer(amount);
 //         uint256 finalBalance = address(wallet).balance;
@@ -26,7 +25,7 @@
 //      }
 
 //     function testWdIsntAllowdF ( uint256 amount, address userAddress) external {
-//         vm.startPrank(userAddress); 
+//         vm.startPrank(userAddress);
 //         vm.deal(userAddress, amount);
 //         payable(address(wallet)).transfer(amount);
 //         vm.expectRevert();
@@ -40,9 +39,9 @@
 //             vm.expectRevert( "you cant withdraw zero" );
 //             wallet.withdraw(amount);
 //         }
-//         vm.startPrank(ownerAddress); 
+//         vm.startPrank(ownerAddress);
 //         vm.deal(ownerAddress, amount);
-//         payable(address(wallet)).transfer(amount); 
+//         payable(address(wallet)).transfer(amount);
 //         uint256 startBalance = address(wallet).balance;
 //         wallet.withdraw(amount);
 //         uint256 finalBalance = address(wallet).balance;
