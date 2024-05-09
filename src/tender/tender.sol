@@ -1,26 +1,24 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.20;
 
-import "/home/user/newProject/myToken/script/myToken.sol";
+import "../NFT/nft.sol";
 import "forge-std/console.sol";
 
 contract Tender {
-    address payable public owner;
+    address public owner;
     mapping(address => uint256) users;
     mapping(uint256 => address) counter;
     int256 wad = 10 ** 18;
-    MyToken public immutable myCoin;
+    MyNFT public immutable myCoin;
     address public maxValue;
     uint256 public start = 0;
-    uint256 public duration = 7 days; //64000
+    uint256 public duration = 7 days; 
     uint256 public count;
     bool public finish = false;
 
     constructor(address _myCoin) {
-        // require(block.timestamp >= duration);
-        // endTender();
-        myCoin = MyToken(_myCoin);
-        owner = payable(msg.sender);
+        myCoin = MyNFT(_myCoin);
+        owner = msg.sender;
         users[owner] = 100;
         maxValue = owner;
     }
@@ -35,7 +33,7 @@ contract Tender {
         _;
     }
 
-    function AddOffer(uint256 amount) external {
+    function addOffer(uint256 amount) external {
         if (block.timestamp > duration) {
             require(amount > 0, "amount is zero");
             require(amount > users[maxValue], "your offer is less from max offer");
@@ -59,7 +57,7 @@ contract Tender {
             address currentAddress = counter[count - 1];
             // address ad = users[currentAddress];
             uint256 val = myCoin.balanceOf(address(currentAddress));
-            myCoin.transfer(address(currentAddress), val);
+            myCoin.transferFrom(msg.sender,address(currentAddress), val);
             count--;
         }
         finish = true;
