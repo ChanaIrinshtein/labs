@@ -5,7 +5,7 @@
 //Let's say 10%.staking_h.t
 //Now I calculate how much is 2% of the totalSupply. (The 2% is fixed),
 //Then from the amount that comes out to me at 2%, Leah will get 10%
-//I calculate each person's reward like this:
+//I calculate eactenderh person's reward like this:
 //For example, Leah wants to withdraw 100 shekels from what she has, I calculate what percentage she has of totalSupply
 //Let's say 10%.
 //Now I calculate how much is 2% of the totalSupply. (The 2% is fixed),

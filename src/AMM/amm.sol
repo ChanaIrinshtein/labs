@@ -42,28 +42,28 @@ contract Amm {
     //         uint256 x = _balanceA * 1e18 / _balanceB / 1e18;
     //         uint256 relativityB = x;
     //         kindOfToken == 1}
-        //     if (kindOfToken == 1) {
-        //         uint256 resultA = amount;
-        //         uint256 resultB = amount * x;
-        //     }
-        //     else{
-        //         uint256 resultB = amount;
-        //         uint256 resultA = amount * x;
-        //     }
-        //        return resultA;
-        // } else {
-        //     uint256 x = _balanceA * 1e18 / _balanceB / 1e18;
-        //     uint256 relativityB = x;
-        //     if (kindOfToken == 2) {
-        //         uint256 resultA = amount;
-        //         uint256 resultB = amount * x;
-        //     }
-        //     else{
-        //         uint256 resultB = amount;
-        //         uint256 resultA = amount * x;
-        //     }
-        //        return resultB;
-        // }
+    //     if (kindOfToken == 1) {
+    //         uint256 resultA = amount;
+    //         uint256 resultB = amount * x;
+    //     }
+    //     else{
+    //         uint256 resultB = amount;
+    //         uint256 resultA = amount * x;
+    //     }
+    //        return resultA;
+    // } else {
+    //     uint256 x = _balanceA * 1e18 / _balanceB / 1e18;
+    //     uint256 relativityB = x;
+    //     if (kindOfToken == 2) {
+    //         uint256 resultA = amount;
+    //         uint256 resultB = amount * x;
+    //     }
+    //     else{
+    //         uint256 resultB = amount;
+    //         uint256 resultA = amount * x;
+    //     }
+    //        return resultB;
+    // }
     // }
 
     function tradeAToB(uint256 amount) external {

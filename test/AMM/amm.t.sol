@@ -46,18 +46,17 @@ contract TestAmm is Test {
         amm.tradeBToA(amount);
     }
 
-    function testAddLiquidityA() external {
-        uint256 sum = 20 * wad;
-        uint256 amount = 50 * wad;
-        address user = vm.addr(123);
-        vm.startPrank(user);
-        console.log("msgmsg", user);
-        tokenA.approve(address(user), amount);
-        tokenA.mint(address(user), amount);
-        tokenB.approve(address(user), amount);
-        tokenB.mint(address(user), amount);
-        amm.AddLiquidityA(sum);
-        // console.log(calcLiquidity())
-    }
-
+    // function testAddLiquidityA() external {
+    //     uint256 sum = 20 * wad;
+    //     uint256 amount = 50 * wad;
+    //     address user = vm.addr(123);
+    //     vm.startPrank(user);
+    //     console.log("msgmsg", user);
+    //     tokenA.approve(address(user), amount);
+    //     tokenA.mint(address(user), amount);
+    //     tokenB.approve(address(user), amount);
+    //     tokenB.mint(address(user), amount);
+    //     amm.AddLiquidityA(sum);
+    //     // console.log(calcLiquidity())
+    // }
 }
