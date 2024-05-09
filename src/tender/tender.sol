@@ -1,11 +1,10 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.8.20;
-
+pragma solidity >=0.8.24;
 import "../NFT/nft.sol";
 import "forge-std/console.sol";
 
 contract Tender {
-    address public owner;
+    address payable public owner;
     mapping(address => uint256) users;
     mapping(uint256 => address) counter;
     int256 wad = 10 ** 18;
@@ -18,10 +17,12 @@ contract Tender {
 
     constructor(address _myCoin) {
         myCoin = MyNFT(_myCoin);
-        owner = msg.sender;
+        owner = payable(msg.sender);
         users[owner] = 100;
         maxValue = owner;
     }
+
+    receive() external payable {}
 
     modifier openTender() {
         require(block.timestamp > duration, "time is finish");
@@ -53,11 +54,13 @@ contract Tender {
     }
 
     function endTender() public {
+        myCoin.transferFrom(address(this),address(maxValue), 1);
         while (count > 0) {
             address currentAddress = counter[count - 1];
             // address ad = users[currentAddress];
             uint256 val = myCoin.balanceOf(address(currentAddress));
-            myCoin.transferFrom(msg.sender,address(currentAddress), val);
+            payable(msg.sender).transfer(val);
+            // myCoin.transferFrom(msg.sender,address(currentAddress), val);
             count--;
         }
         finish = true;
