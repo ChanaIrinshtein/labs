@@ -40,7 +40,8 @@ contract Tender {
             require(amount > users[maxValue], "your offer is less from max offer");
             maxValue = msg.sender;
             counter[count] = msg.sender;
-            myCoin.transferFrom(msg.sender, address(this), amount);
+            // myCoin.transferFrom(msg.sender, address(this), amount);
+            payable(address(this)).transfer(amount);
             users[msg.sender] = amount;
             count++;
         } else if (!finish) {
