@@ -23,7 +23,7 @@ contract Tender {
         myCoinNFT = MyNFT(_myCoinNFT);
         myCoineE = MyToken(_myCoineE);
         owner = payable(msg.sender);
-        console.log("ooooooooooooooooooooooooooo",owner);
+        console.log("ooooooooooooooooooooooooooo", owner);
         users[owner] = amount;
         maxValue = owner;
     }
@@ -62,13 +62,12 @@ contract Tender {
     }
 
     function removeOffer(address user) external isOwner openTender {
-        console.log("owner",users[owner]);
-        console.log("users[user]",users[user]);
-        console.log("users[maxValue]",users[maxValue]);
+        console.log("owner", users[owner]);
+        console.log("users[user]", users[user]);
+        console.log("users[maxValue]", users[maxValue]);
         require(users[user] < users[maxValue], "you cannot cancel offer becuse your offer is higher");
         users[user] = 0;
-        console.log("usususususus",users[user]);
-
+        console.log("usususususus", users[user]);
     }
 
     function endTender() public {
