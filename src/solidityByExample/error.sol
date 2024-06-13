@@ -2,32 +2,28 @@
 pragma solidity ^0.8.24;
 
 contract Error {
-    function testRequire(uint _i) public pure {
-        require( _i > 10, "input must be greater than 10");
+    function testRequire(uint256 _i) public pure {
+        require(_i > 10, "input must be greater than 10");
     }
 
-    function testRevert(uint _i) public pure {
-        if(_i <= 10) {
+    function testRevert(uint256 _i) public pure {
+        if (_i <= 10) {
             revert("input must be greater than 10");
         }
     }
 
-    uint public num;
+    uint256 public num;
 
     function testAssert() public view {
         assert(num == 0);
     }
 
-    error InsufficientBalance(uint balance, uint withdrawAmount);
+    error InsufficientBalance(uint256 balance, uint256 withdrawAmount);
 
-    function testCustomError(uint _withdrawAmount) public view {
-        uint bal = address(this).balance;
-        if(bal < _withdrawAmount) {
-            revert InsufficientBalance({
-                balance: bal,
-                withdrawAmount: _withdrawAmount
-            });
+    function testCustomError(uint256 _withdrawAmount) public view {
+        uint256 bal = address(this).balance;
+        if (bal < _withdrawAmount) {
+            revert InsufficientBalance({balance: bal, withdrawAmount: _withdrawAmount});
         }
     }
 }
-

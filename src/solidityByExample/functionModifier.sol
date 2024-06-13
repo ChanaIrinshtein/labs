@@ -3,7 +3,7 @@ pragma solidity ^0.8.24;
 
 contract FunctionModifier {
     address public owner;
-    uint public x = 10;
+    uint256 public x = 10;
     bool public locked;
 
     constructor() {
@@ -30,7 +30,7 @@ contract FunctionModifier {
         locked = false;
     }
 
-    function decrement(uint i) public noReentrancy {
+    function decrement(uint256 i) public noReentrancy {
         x -= i;
         if (i > 1) {
             decrement((i - 1));

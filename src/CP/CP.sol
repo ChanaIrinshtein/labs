@@ -1,5 +1,5 @@
 // // SPDX-License-Identifier: MIT
-// pragma solidity ^0.8.24;
+// pragma solidity >= 0.5.11;
 // import "/home/user/Documents/labs/labs/src/like/IERC20.sol";
 // // constant product
 // contract CP {

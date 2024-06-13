@@ -20,7 +20,7 @@
 
 // contract TestStorage {
 //     uint public val;
-     
+
 //     function test() public {
 //         val = 23;
 //         bytes memory b = "";
@@ -81,4 +81,3 @@
 //         msg.sender.call(b);
 //     }
 // }
-

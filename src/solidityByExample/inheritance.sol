@@ -29,7 +29,7 @@ contract E is C, B {
     function foo() public pure override(C, B) returns (string memory) {
         return super.foo();
     }
-} 
+}
 
 contract F is A, B {
     function foo() public pure override(A, B) returns (string memory) {

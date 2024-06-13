@@ -2,14 +2,14 @@
 pragma solidity ^0.8.24;
 
 contract DataLocations {
-    uint[] public arr;
-    mapping(uint => address) map;
+    uint256[] public arr;
+    mapping(uint256 => address) map;
 
     struct MyStruct {
-        uint foo;
+        uint256 foo;
     }
 
-    mapping(uint => MyStruct) myStructs;
+    mapping(uint256 => MyStruct) myStructs;
 
     function f() public {
         _f(arr, map, myStructs[1]);
@@ -17,19 +17,11 @@ contract DataLocations {
         MyStruct memory myMemStruct = MyStruct(0);
     }
 
-    function _f(
-        uint[] storage _arr,
-        mapping(uint => address) storage _map,
-        MyStruct storage _myStruct
-    ) internal {
-        
-    }
+    function _f(uint256[] storage _arr, mapping(uint256 => address) storage _map, MyStruct storage _myStruct)
+        internal
+    {}
 
-    function g(uint[] memory _arr) public returns (uint[] memory) {
+    function g(uint256[] memory _arr) public returns (uint256[] memory) {}
 
-    }
-
-    function h(uint[] calldata _arr) external {
-
-    }
+    function h(uint256[] calldata _arr) external {}
 }

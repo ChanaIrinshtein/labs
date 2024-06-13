@@ -6,7 +6,7 @@ contract Event {
     event AnotherLog();
 
     function test() public {
-        emit Log( msg.sender, "Hello world");
+        emit Log(msg.sender, "Hello world");
         emit Log(msg.sender, "Hello EVM!");
         emit AnotherLog();
     }

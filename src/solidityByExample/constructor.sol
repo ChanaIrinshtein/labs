@@ -24,7 +24,7 @@ contract C is X, Y {
 }
 
 contract D is X, Y {
-     constructor() X("X was called") Y("Y was called") {}
+    constructor() X("X was called") Y("Y was called") {}
 }
 
 contract E is X, Y {

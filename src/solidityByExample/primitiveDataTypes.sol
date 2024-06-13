@@ -15,7 +15,7 @@ contract Primitives {
     int256 public maxInt = type(int256).max;
 
     address public addr = 0xCA35b7d915458EF540aDe6068dFe2F44E8fa733c;
-    
+
     // bytes a = 0xb5;
     // bytes b = 0x56;
 
